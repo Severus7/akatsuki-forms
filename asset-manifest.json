@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/akatsuki-forms/static/css/main.84776f35.css",
+    "main.js": "/akatsuki-forms/static/js/main.81ecf1c9.js",
+    "static/js/787.5bd4efce.chunk.js": "/akatsuki-forms/static/js/787.5bd4efce.chunk.js",
+    "static/media/akatsuki2.jpg": "/akatsuki-forms/static/media/akatsuki2.56eccd3b367dfadcb7af.jpg",
+    "index.html": "/akatsuki-forms/index.html",
+    "main.84776f35.css.map": "/akatsuki-forms/static/css/main.84776f35.css.map",
+    "main.81ecf1c9.js.map": "/akatsuki-forms/static/js/main.81ecf1c9.js.map",
+    "787.5bd4efce.chunk.js.map": "/akatsuki-forms/static/js/787.5bd4efce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84776f35.css",
+    "static/js/main.81ecf1c9.js"
+  ]
+}
