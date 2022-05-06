@@ -16,7 +16,7 @@ import akatsuki from "../assets/akatsuki2.jpg";
 
 const schema = yup
   .object({
-    firstName: yup.string().required("This field is requireD"),
+    firstName: yup.string().required("This field is required"),
     surName: yup.string().required("This field is required"),
     email: yup
       .string()
@@ -41,7 +41,13 @@ const ForgotPassword = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    alert(
+      `Welcome to the Akatsuki, ${data.firstName}! The world shall know pain`
+    );
+    console.log(data);
+  };
+
   return (
     <Paper
       sx={{
@@ -50,18 +56,11 @@ const ForgotPassword = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         borderRadius: 0,
-        height: "100vh",
+        height: "100%",
       }}
     >
       <Paper sx={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
         <Container>
-          <Typography
-            variant="h2"
-            color="common.white"
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            Join the Akatsuki
-          </Typography>
           <Box
             sx={{
               height: "100vh",
@@ -84,6 +83,14 @@ const ForgotPassword = () => {
                 border: "1px solid rgba(255, 255, 255, 0.125),",
               }}
             >
+              <Typography
+                variant="h4"
+                color="common.white"
+                gutterBottom
+                sx={{ textAlign: "center" }}
+              >
+                Join the Akatsuki
+              </Typography>
               <Box component="form" onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2}>
                   <Grid item lg={6} xs={12}>
@@ -132,6 +139,52 @@ const ForgotPassword = () => {
                       helperText={errors.surName?.message}
                     />
                   </Grid>
+                  <Grid item lg={6} xs={12}>
+                    <TextField
+                      required
+                      label="Email Address"
+                      fullWidth
+                      sx={{
+                        marginBottom: "10px",
+                        input: { color: "white" },
+                        // fieldset: { borderColor: "white" },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                          "& > fieldset": {
+                            border: "1px solid white",
+                          },
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: { color: "white", fontWeight: 100 },
+                      }}
+                      {...register("email")}
+                      error={!!errors?.email}
+                      helperText={errors.email?.message}
+                    />
+                  </Grid>
+                  <Grid item lg={6} xs={12}>
+                    <TextField
+                      required
+                      label="Password"
+                      fullWidth
+                      sx={{
+                        marginBottom: "10px",
+                        input: { color: "white" },
+                        // fieldset: { borderColor: "white" },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                          "& > fieldset": {
+                            border: "1px solid white",
+                          },
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: { color: "white", fontWeight: 100 },
+                      }}
+                      {...register("password")}
+                      error={!!errors?.password}
+                      helperText={errors.password?.message}
+                    />
+                  </Grid>
 
                   {/* INSERT OTHER TEXTFIELD HERE AND WRAP THEM AROUND GRID ITEM (check the code above) */}
 
@@ -140,6 +193,7 @@ const ForgotPassword = () => {
                       <Button
                         variant="outlined"
                         sx={{
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
                           color: "white",
                           marginBottom: 2,
                           border: "1px solid rgba(0, 0, 0, 0.2)",
